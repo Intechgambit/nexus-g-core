@@ -1,4 +1,13 @@
-# Nexus-G | The Agentic Genomic Intelligence Engine
+<table border="0">
+  <tr>
+    <td>
+      <img src="assets/nexus-g-logo.png" width="100" alt="Nexus-G Logo">
+    </td>
+    <td>
+      <h1>Nexus-G | The Agentic Genomic Intelligence Engine</h1>
+    </td>
+  </tr>
+</table>
 
 **Unifying fragmented toolchains into a standardized, reproducible, and publication-ready operational workspace.**
 
