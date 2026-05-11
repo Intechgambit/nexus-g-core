@@ -49,7 +49,7 @@ Move from raw sequences to publication-ready insights using the **Interactive Da
 
 ## LLM Assistants (Enterprise)
 * **EcoTrack AI:** A dedicated assistant for workflow setup, troubleshooting, and query optimization—converting plain English into complex NCBI search syntax.
-* **Geneie Dataset Assistant:** A natural-language interrogation engine located within the dashboard. Users can ask complex biological questions regarding top organisms, gene names, and sequence features without manual filtering.
+* **Geneie Dataset Assistant:** A natural-language interrogation engine located as a standalone and within the dashboard. Users can ask complex biological questions regarding top organisms, gene names, and sequence features without manual filtering.
 
 ---
 
