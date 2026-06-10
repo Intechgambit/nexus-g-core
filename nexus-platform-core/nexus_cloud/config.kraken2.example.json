@@ -1,0 +1,33 @@
+{
+  "cloud": {
+    "provider": "aws",
+    "bucket_path": "s3://my-bucket/genomics",
+    "credentials": {
+      "aws_access_key_id": "YOUR_ACCESS_KEY",
+      "aws_secret_access_key": "YOUR_SECRET_KEY",
+      "region_name": "us-east-1"
+    }
+  },
+  "kraken2": {
+    "db_path": "kraken2db/pluspf",
+    "confidence": 0.0,
+    "minimum_base_quality": 0,
+    "num_threads": 4,
+    "extra_args": []
+  },
+  "run": {
+    "pool_workers": 4,
+    "jobs": [
+      {
+        "input": "reads/sample1_R1.fastq",
+        "output": "results/sample1.kraken",
+        "report": "results/sample1.kraken.report"
+      },
+      {
+        "input": "reads/sample2_R1.fastq",
+        "output": "results/sample2.kraken",
+        "report": "results/sample2.kraken.report"
+      }
+    ]
+  }
+}

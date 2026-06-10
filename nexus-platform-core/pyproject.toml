@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-cloud"
+version = "0.3.0"
+description = "Cloud-native BLAST, Kraken2, Minimap2, and Bowtie2 utilities for Nexus-G"
+readme = "README.md"
+license = { text = "GPL-3.0" }
+authors = [{ name = "Amina Jackson", email = "developers@intechgambit.com" }]
+requires-python = ">=3.10"
+keywords = ["bioinformatics", "blast", "kraken2", "minimap2", "bowtie2", "cloud", "aws", "gcp", "azure", "nexus-g"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = []
+
+[project.optional-dependencies]
+aws = ["boto3>=1.28"]
+gcp = ["google-cloud-storage>=2.10"]
+azure = ["azure-storage-blob>=12.19"]
+all = ["boto3>=1.28", "google-cloud-storage>=2.10", "azure-storage-blob>=12.19"]
+yaml = ["pyyaml>=6.0"]
+
+[project.scripts]
+nexus-cloud-blast = "nexus_cloud.blast.cli:main"
+nexus-cloud-kraken2 = "nexus_cloud.kraken2.cli:main"
+nexus-cloud-minimap2 = "nexus_cloud.minimap2.cli:main"
+nexus-cloud-bowtie2 = "nexus_cloud.bowtie2.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nexus_cloud*"]

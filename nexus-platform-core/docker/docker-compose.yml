@@ -1,0 +1,29 @@
+services:
+  nexus-cloud:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: nexus-cloud-genomics:latest
+    volumes:
+      # Mount your run configs (copy examples from nexus_cloud/config.*.example.json)
+      - ./config:/config:ro
+      # Optional local data, indexes, and references
+      - ./data:/data
+      - ./references:/references:ro
+      # AWS profile/credentials (uncomment if needed)
+      # - ${HOME}/.aws:/root/.aws:ro
+      # GCP service account (uncomment and set path)
+      # - ${GOOGLE_APPLICATION_CREDENTIALS}:/secrets/gcp.json:ro
+    environment:
+      # AWS (or use IAM role on ECS/EKS/EC2)
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION:-us-east-1}
+      # GCP ADC via mounted key
+      GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS:-/secrets/gcp.json}
+      # Azure
+      AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING:-}
+    # Override per run, e.g.:
+    #   docker compose run --rm nexus-cloud blast --config /config/blast.json
+    command: ["help"]

@@ -1,0 +1,30 @@
+{
+  "cloud": {
+    "provider": "azure",
+    "bucket_path": "my-container/genomics",
+    "credentials": {
+      "connection_string": "YOUR_CONNECTION_STRING"
+    }
+  },
+  "bowtie2": {
+    "index_path": "indexes/genome",
+    "mode": "paired",
+    "num_threads": 4,
+    "extra_args": []
+  },
+  "run": {
+    "pool_workers": 4,
+    "jobs": [
+      {
+        "input": "reads/sample1_R1.fastq",
+        "input2": "reads/sample1_R2.fastq",
+        "output": "alignments/sample1.sam"
+      },
+      {
+        "input": "reads/sample2_R1.fastq",
+        "input2": "reads/sample2_R2.fastq",
+        "output": "alignments/sample2.sam"
+      }
+    ]
+  }
+}

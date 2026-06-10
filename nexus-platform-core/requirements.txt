@@ -1,0 +1,7 @@
+# Core has no required Python dependencies beyond BLAST+ on PATH.
+# Install provider SDKs as needed:
+#
+#   pip install -e ".[aws]"
+#   pip install -e ".[gcp]"
+#   pip install -e ".[azure]"
+#   pip install -e ".[all]"

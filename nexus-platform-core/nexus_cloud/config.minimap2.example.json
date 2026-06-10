@@ -1,0 +1,29 @@
+{
+  "cloud": {
+    "provider": "gcp",
+    "bucket_path": "gs://my-bucket/genomics",
+    "credentials": {
+      "credentials_path": "/path/to/service-account.json"
+    }
+  },
+  "minimap2": {
+    "reference_path": "references/genome.fa",
+    "preset": "map-ont",
+    "num_threads": 4,
+    "output_format": "sam",
+    "extra_args": []
+  },
+  "run": {
+    "pool_workers": 4,
+    "jobs": [
+      {
+        "input": "reads/sample1.fastq",
+        "output": "alignments/sample1.sam"
+      },
+      {
+        "input": "reads/sample2.fastq",
+        "output": "alignments/sample2.sam"
+      }
+    ]
+  }
+}

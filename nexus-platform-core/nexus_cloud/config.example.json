@@ -1,0 +1,37 @@
+{
+  "cloud": {
+    "provider": "aws",
+    "bucket_path": "s3://my-bucket/genomics",
+    "credentials": {
+      "aws_access_key_id": "YOUR_ACCESS_KEY",
+      "aws_secret_access_key": "YOUR_SECRET_KEY",
+      "region_name": "us-east-1"
+    }
+  },
+  "blast": {
+    "db_path": "blastdb/nt",
+    "program": "blastn",
+    "evalue": 1e-5,
+    "word_size": 16,
+    "num_threads": 4,
+    "outfmt": "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore",
+    "extra_args": ["-max_target_seqs", "10"]
+  },
+  "run": {
+    "pool_workers": 4,
+    "jobs": [
+      {
+        "input": "queries/sample1.fasta",
+        "output": "results/sample1_blast.tsv"
+      },
+      {
+        "input": "queries/sample2.fasta",
+        "output": "results/sample2_blast.tsv"
+      },
+      {
+        "input": "queries/sample3.fasta",
+        "output": "results/sample3_blast.tsv"
+      }
+    ]
+  }
+}
